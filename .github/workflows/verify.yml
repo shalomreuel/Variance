@@ -19,7 +19,7 @@ jobs:
   godot:
     runs-on: ubuntu-latest
     env:
-      XDG_DATA_HOME: ${{ runner.temp }}/variant-zero-test
+      XDG_DATA_HOME: /tmp/variant-zero-ci-profile
     steps:
       - uses: actions/checkout@v4
       - name: Install Godot 4.6
