@@ -28,6 +28,14 @@ jobs:
           unzip -q godot.zip
           mv Godot_v4.6-stable_linux.x86_64 godot
           chmod +x godot
+      - name: Compile genetics engine in isolation
+        run: |
+          ./godot --headless --path . --check-only --script scripts/genetics_engine.gd > compile.log 2>&1 || {
+            cat compile.log
+            echo "::error::$(head -n 65 compile.log | tr '\n' ' ' | cut -c 1-10000)"
+            exit 1
+          }
+          cat compile.log
       - name: Import assets and parse project
         run: |
           ./godot --headless --path . --editor --import --quit > import.log 2>&1
