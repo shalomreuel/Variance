@@ -1,0 +1,56 @@
+{
+  "dominance_intro": {
+    "concept": "dominance", "quest_id": "dominance_intro", "quest_title": "The hidden light coat", "difficulty": 1,
+    "objective": "Can two dark-furred dogs produce a light-furred puppy? Cross two Bb parents and explain why.",
+    "question": "What percentage of puppies will have dark fur? What percentage will have light fur?",
+    "lesson": "A dominant allele affects the phenotype in a heterozygote. Dominant does not mean stronger or more common.",
+    "misconception_target": "dominant_means_stronger",
+    "lab_task": {"type": "inheritance", "trait": "fur_color", "parents": [{"genotype": "Bb"}, {"genotype": "Bb"}]},
+    "next_concept": "genotype"
+  },
+  "dominance_revisit": {
+    "concept": "dominance", "quest_id": "dominance_revisit", "quest_title": "An ear for evidence", "difficulty": 2,
+    "objective": "Test whether an Ee upright-eared dog crossed with an ee floppy-eared dog can have floppy-eared offspring.",
+    "question": "Predict the percentage with upright ears and with floppy ears.",
+    "lesson": "An Ee dog looks upright-eared in this teaching model, but can still pass on e. Follow the alleles, not just appearance.",
+    "misconception_target": "dominant_phenotype_means_AA",
+    "lab_task": {"type": "inheritance", "trait": "ear_type", "parents": [{"genotype": "Ee"}, {"genotype": "ee"}]},
+    "next_concept": "genotype"
+  },
+  "hidden_genotypes": {
+    "concept": "genotype", "quest_id": "hidden_genotypes", "quest_title": "Same look, different code", "difficulty": 2,
+    "objective": "Cross a dark Bb dog and a light bb dog. Can puppies with different appearances share an allele?",
+    "question": "Predict the percentage of dark-furred and light-furred puppies.",
+    "lesson": "Genotype names the allele pair; phenotype names the observable trait. A Bb dog is dark, yet can pass on b.",
+    "misconception_target": "genotype_equals_phenotype",
+    "lab_task": {"type": "inheritance", "trait": "fur_color", "parents": [{"genotype": "Bb"}, {"genotype": "bb"}]},
+    "next_concept": "punnett_squares"
+  },
+  "punnett_grid": {
+    "concept": "punnett_squares", "quest_id": "punnett_grid", "quest_title": "Four possible paths", "difficulty": 3,
+    "objective": "Cross two Tt dogs. Use the four combinations of gametes to predict long and short tails.",
+    "question": "How many of the four equally likely combinations make a short tail?",
+    "lesson": "A Punnett square enumerates equally likely allele combinations; it predicts probabilities, not the outcome of a single birth.",
+    "misconception_target": "dominant_phenotype_means_AA",
+    "lab_task": {"type": "inheritance", "trait": "tail_type", "parents": [{"genotype": "Tt"}, {"genotype": "Tt"}]},
+    "next_concept": "genetic_variation"
+  },
+  "variation": {
+    "concept": "genetic_variation", "quest_id": "variation", "quest_title": "Variation in a litter", "difficulty": 4,
+    "objective": "Cross an amber-eyed Cc dog with a blue-eyed cc dog. Explore how existing alleles produce variation among offspring.",
+    "question": "Predict the fraction of amber-eyed and blue-eyed puppies.",
+    "lesson": "Sexual inheritance reshuffles existing alleles. This variation is not a mutation caused by the puppies needing to change.",
+    "misconception_target": "variation_is_created_by_need",
+    "lab_task": {"type": "inheritance", "trait": "eye_color", "parents": [{"genotype": "Cc"}, {"genotype": "cc"}]},
+    "next_concept": "inheritance"
+  },
+  "coat_inheritance": {
+    "concept": "inheritance", "quest_id": "coat_inheritance", "quest_title": "Another gene, same logic", "difficulty": 5,
+    "objective": "Apply the allele model to a second characteristic. Cross Ll and Ll to investigate coat length.",
+    "question": "What proportion of puppies should have short coats?",
+    "lesson": "The same inheritance rule can model several separate traits. Actual dog coat length is more complex than this fictional single-gene exercise.",
+    "misconception_target": "genotype_equals_phenotype",
+    "lab_task": {"type": "inheritance", "trait": "fur_length", "parents": [{"genotype": "Ll"}, {"genotype": "Ll"}]},
+    "next_concept": "genetic_variation"
+  }
+}

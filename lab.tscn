@@ -1,75 +1,160 @@
-[gd_scene format=3 uid="uid://d363uo0t3panb"]
+[gd_scene load_steps=19 format=3 uid="uid://d363uo0t3panb"]
 
-[ext_resource type="Texture2D" uid="uid://bo2bs56jc1udq" path="res://ChatGPT Image Sep 22, 2026, 10_35_30 AM.png" id="1_6kv01"]
-[ext_resource type="Texture2D" uid="uid://gp2dvl6lhh8h" path="res://pod sprite.png" id="2_uw7jv"]
-[ext_resource type="Texture2D" uid="uid://bvxlvotvcfygq" path="res://prof sprite.png" id="3_ecarl"]
-[ext_resource type="Texture2D" uid="uid://cwt28kqugsarr" path="res://desk sprite.png" id="4_epn36"]
-[ext_resource type="Texture2D" uid="uid://cg6ai56pcmkdp" path="res://comp sprite.png" id="5_vu75y"]
-[ext_resource type="Texture2D" uid="uid://ckutyhn2hxmlp" path="res://main sprite.png" id="6_q077n"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_world"]
+[ext_resource type="Texture2D" path="res://ChatGPT Image Sep 22, 2026, 10_35_30 AM.png" id="2_bg"]
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="3_player"]
+[ext_resource type="Texture2D" path="res://assets/sprites/student.png" id="4_student"]
+[ext_resource type="Texture2D" path="res://assets/sprites/professor.png" id="5_prof"]
+[ext_resource type="Texture2D" path="res://assets/sprites/computer.png" id="6_computer"]
+[ext_resource type="Texture2D" path="res://assets/sprites/desk.png" id="7_desk"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tank.png" id="8_tank"]
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="9_interact"]
 
-[node name="Lab" type="Node2D" unique_id=1195832988]
+[sub_resource type="RectangleShape2D" id="FloorFootprint"]
+size = Vector2(27, 16)
 
-[node name="Lab" type="TextureRect" parent="." unique_id=1503532030]
-custom_minimum_size = Vector2(1152, 648)
+[sub_resource type="CircleShape2D" id="ProfessorRadius"]
+radius = 106.0
+
+[sub_resource type="CircleShape2D" id="ComputerRadius"]
+radius = 106.0
+
+[sub_resource type="RectangleShape2D" id="WallVertical"]
+size = Vector2(48, 630)
+
+[sub_resource type="RectangleShape2D" id="WallHorizontal"]
+size = Vector2(1100, 36)
+
+[sub_resource type="RectangleShape2D" id="Tanks"]
+size = Vector2(245, 28)
+
+[sub_resource type="RectangleShape2D" id="Terminal"]
+size = Vector2(92, 26)
+
+[sub_resource type="RectangleShape2D" id="DeskFoot"]
+size = Vector2(146, 31)
+
+[sub_resource type="RectangleShape2D" id="ProfessorFoot"]
+size = Vector2(30, 20)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_world")
+
+[node name="Background" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_6kv01")
+mouse_filter = 2
+texture = ExtResource("2_bg")
 expand_mode = 1
+stretch_mode = 6
 
-[node name="pod1" type="TextureRect" parent="." unique_id=2107367996]
-offset_left = 357.0
-offset_top = 138.0
-offset_right = 457.0
-offset_bottom = 301.0
-texture = ExtResource("2_uw7jv")
-expand_mode = 1
+[node name="Vignette" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.0, 0.055, 0.035, 0.20)
 
-[node name="pod2" type="TextureRect" parent="." unique_id=257789665]
-offset_left = 167.0
-offset_top = 141.0
-offset_right = 276.0
-offset_bottom = 298.0
-texture = ExtResource("2_uw7jv")
-expand_mode = 1
-stretch_mode = 5
+[node name="TankLeft" type="Sprite2D" parent="."]
+position = Vector2(194, 271)
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("8_tank")
 
-[node name="pod3" type="TextureRect" parent="." unique_id=873018504]
-offset_left = 260.0
-offset_top = 135.0
-offset_right = 359.0
-offset_bottom = 297.0
-texture = ExtResource("2_uw7jv")
-expand_mode = 1
-stretch_mode = 5
+[node name="TankCenter" type="Sprite2D" parent="."]
+position = Vector2(280, 271)
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("8_tank")
 
-[node name="Professor" type="TextureRect" parent="." unique_id=961833689]
-offset_left = 764.0
-offset_top = 152.0
-offset_right = 846.0
-offset_bottom = 278.0
-texture = ExtResource("3_ecarl")
-expand_mode = 1
+[node name="TankRight" type="Sprite2D" parent="."]
+position = Vector2(366, 271)
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("8_tank")
 
-[node name="Desk" type="TextureRect" parent="." unique_id=1531805638]
-offset_left = 700.0
-offset_top = 158.0
-offset_right = 940.0
-offset_bottom = 294.0
-texture = ExtResource("4_epn36")
-expand_mode = 1
+[node name="Computer" type="Sprite2D" parent="."]
+position = Vector2(317, 414)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("6_computer")
 
-[node name="Computer" type="TextureRect" parent="." unique_id=1618052241]
-offset_left = 232.0
-offset_top = 335.0
-offset_right = 342.0
-offset_bottom = 451.0
-texture = ExtResource("5_vu75y")
-expand_mode = 1
+[node name="Desk" type="Sprite2D" parent="."]
+position = Vector2(947, 359)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("7_desk")
 
-[node name="Maincharacter" type="TextureRect" parent="." unique_id=495051076]
-offset_left = 95.0
-offset_top = 275.0
-offset_right = 165.0
-offset_bottom = 384.0
-texture = ExtResource("6_q077n")
-expand_mode = 1
+[node name="Professor" type="Sprite2D" parent="."]
+position = Vector2(822, 332)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_prof")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(572, 541)
+collision_layer = 1
+collision_mask = 2
+script = ExtResource("3_player")
+
+[node name="Artwork" type="Sprite2D" parent="Player"]
+position = Vector2(0, -63)
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("4_student")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("FloorFootprint")
+
+[node name="ProfessorInteraction" type="Area2D" parent="."]
+position = Vector2(822, 391)
+script = ExtResource("9_interact")
+kind = "professor"
+prompt_text = "[E] TALK TO PROFESSOR"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProfessorInteraction"]
+shape = SubResource("ProfessorRadius")
+
+[node name="ComputerInteraction" type="Area2D" parent="."]
+position = Vector2(317, 474)
+script = ExtResource("9_interact")
+kind = "computer"
+prompt_text = "[E] ACCESS GENETICS LAB"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerInteraction"]
+shape = SubResource("ComputerRadius")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(34, 326)
+shape = SubResource("WallVertical")
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1118, 326)
+shape = SubResource("WallVertical")
+
+[node name="Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(576, 190)
+shape = SubResource("WallHorizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(576, 624)
+shape = SubResource("WallHorizontal")
+
+[node name="Furniture" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="TankFootprint" type="CollisionShape2D" parent="Furniture"]
+position = Vector2(280, 331)
+shape = SubResource("Tanks")
+
+[node name="TerminalFootprint" type="CollisionShape2D" parent="Furniture"]
+position = Vector2(317, 471)
+shape = SubResource("Terminal")
+
+[node name="DeskFootprint" type="CollisionShape2D" parent="Furniture"]
+position = Vector2(947, 411)
+shape = SubResource("DeskFoot")
+
+[node name="ProfessorFootprint" type="CollisionShape2D" parent="Furniture"]
+position = Vector2(822, 389)
+shape = SubResource("ProfessorFoot")
+
+[node name="WorldHUD" type="CanvasLayer" parent="."]
+layer = 3

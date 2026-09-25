@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "organism": "dog",
+  "model_note": "Simplified fictional single-gene dog model for learning Mendelian inheritance; real dog traits are often polygenic and influenced by the environment.",
+  "traits": [
+    {
+      "id": "fur_color", "name": "Fur color", "symbol": "B", "default_genotype": "Bb", "concept": "dominance",
+      "alleles": {"B": {"name": "Dark", "dominance": "dominant"}, "b": {"name": "Light", "dominance": "recessive"}},
+      "phenotypes": {"dominant": "Dark fur", "recessive": "Light fur"},
+      "visual": {"dominant": "#80513C", "recessive": "#E6CC9D"}
+    },
+    {
+      "id": "fur_length", "name": "Fur length", "symbol": "L", "default_genotype": "Ll", "concept": "genotype",
+      "alleles": {"L": {"name": "Long", "dominance": "dominant"}, "l": {"name": "Short", "dominance": "recessive"}},
+      "phenotypes": {"dominant": "Long coat", "recessive": "Short coat"},
+      "visual": {"dominant": "long", "recessive": "short"}
+    },
+    {
+      "id": "ear_type", "name": "Ear type", "symbol": "E", "default_genotype": "Ee", "concept": "inheritance",
+      "alleles": {"E": {"name": "Upright", "dominance": "dominant"}, "e": {"name": "Floppy", "dominance": "recessive"}},
+      "phenotypes": {"dominant": "Upright ears", "recessive": "Floppy ears"},
+      "visual": {"dominant": "upright", "recessive": "floppy"}
+    },
+    {
+      "id": "tail_type", "name": "Tail type", "symbol": "T", "default_genotype": "Tt", "concept": "punnett_squares",
+      "alleles": {"T": {"name": "Long", "dominance": "dominant"}, "t": {"name": "Short", "dominance": "recessive"}},
+      "phenotypes": {"dominant": "Long tail", "recessive": "Short tail"},
+      "visual": {"dominant": "long", "recessive": "short"}
+    },
+    {
+      "id": "eye_color", "name": "Eye color", "symbol": "C", "default_genotype": "Cc", "concept": "genetic_variation",
+      "alleles": {"C": {"name": "Amber", "dominance": "dominant"}, "c": {"name": "Blue", "dominance": "recessive"}},
+      "phenotypes": {"dominant": "Amber eyes", "recessive": "Blue eyes"},
+      "visual": {"dominant": "#F6B85D", "recessive": "#75BBF3"}
+    },
+    {
+      "id": "leg_structure", "name": "Leg structure", "symbol": "D", "default_genotype": "Dd", "concept": "genetic_variation",
+      "alleles": {"D": {"name": "Long", "dominance": "dominant"}, "d": {"name": "Short", "dominance": "recessive"}},
+      "phenotypes": {"dominant": "Long legs", "recessive": "Short legs"},
+      "visual": {"dominant": "long", "recessive": "short"}
+    }
+  ]
+}

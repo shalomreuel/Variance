@@ -1,12 +1,26 @@
-[gd_scene format=3 uid="uid://7cy0r0ki0yph"]
+[gd_scene load_steps=3 format=3 uid="uid://7cy0r0ki0yph"]
 
-[ext_resource type="Texture2D" uid="uid://dr022vxugo0cs" path="res://ChatGPT Image Sep 25, 2026, 12_13_54 PM.png" id="1_uoi7k"]
+[ext_resource type="Texture2D" path="res://ChatGPT Image Sep 25, 2026, 11_40_17 AM.png" id="1_frame"]
+[ext_resource type="Script" path="res://scripts/code_editor.gd" id="2_logic"]
 
-[node name="Code editor" type="Node2D" unique_id=1312420716]
+[node name="GeneticsCodeEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("2_logic")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1472683271]
-custom_minimum_size = Vector2(1152, 648)
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_uoi7k")
+[node name="WorkstationFrame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_frame")
 expand_mode = 1
+stretch_mode = 6

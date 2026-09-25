@@ -1,26 +1,51 @@
-; Engine configuration file.
-; It's best edited using the editor UI and not directly,
-; since the parameters that go here are not all obvious.
-;
-; Format:
-;   [section] ; section goes between []
-;   param=value ; assign values to parameters
-
+; Variant Zero — Godot 4.6
 config_version=5
 
 [application]
 
-config/name="Variance"
-run/main_scene="uid://btcmllj5482g3"
+config/name="Variant Zero"
+run/main_scene="res://start_screen.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+config/description="Learn, predict, experiment, observe, understand."
 config/icon="res://icon.svg"
 
-[physics]
+[autoload]
 
-3d/physics_engine="Jolt Physics"
+GameState="*res://scripts/game_state.gd"
+AIManager="*res://scripts/ai_manager.gd"
+
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/size/window_width_override=1152
+window/size/window_height_override=648
+window/stretch/mode="canvas_items"
+
+[input]
+
+move_left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":65)]
+}
+move_right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":68)]
+}
+move_up={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":87)]
+}
+move_down={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":83)]
+}
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":69)]
+}
 
 [rendering]
 
-rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
