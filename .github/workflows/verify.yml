@@ -8,8 +8,8 @@ jobs:
   backend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - run: python -m pip install -r backend/requirements.txt pytest httpx gdtoolkit
@@ -21,7 +21,7 @@ jobs:
     env:
       XDG_DATA_HOME: /tmp/variant-zero-ci-profile
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Godot 4.6
         run: |
           curl -fLsS --retry 3 'https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_linux.x86_64.zip' -o godot.zip
@@ -31,8 +31,26 @@ jobs:
       - name: Import assets and parse project
         run: ./godot --headless --path . --editor --import --quit
       - name: Deterministic inheritance and learner tests
-        run: ./godot --headless --path . --script tests/genetics_test.gd
+        run: |
+          ./godot --headless --path . --script tests/genetics_test.gd > genetics.log 2>&1 || {
+            cat genetics.log
+            echo "::error::$(tail -n 55 genetics.log | tr '\n' ' ' | cut -c 1-3500)"
+            exit 1
+          }
+          cat genetics.log
       - name: Full offline interaction loop
-        run: ./godot --headless --path . --script tests/smoke_loop.gd
+        run: |
+          ./godot --headless --path . --script tests/smoke_loop.gd > smoke.log 2>&1 || {
+            cat smoke.log
+            echo "::error::$(tail -n 55 smoke.log | tr '\n' ' ' | cut -c 1-3500)"
+            exit 1
+          }
+          cat smoke.log
       - name: Persistent learner profile
-        run: ./godot --headless --path . --script tests/persistence_test.gd
+        run: |
+          ./godot --headless --path . --script tests/persistence_test.gd > persistence.log 2>&1 || {
+            cat persistence.log
+            echo "::error::$(tail -n 55 persistence.log | tr '\n' ' ' | cut -c 1-3500)"
+            exit 1
+          }
+          cat persistence.log
