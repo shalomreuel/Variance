@@ -29,7 +29,13 @@ jobs:
           mv Godot_v4.6-stable_linux.x86_64 godot
           chmod +x godot
       - name: Import assets and parse project
-        run: ./godot --headless --path . --editor --import --quit
+        run: |
+          ./godot --headless --path . --editor --import --quit > import.log 2>&1
+          cat import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load script|Failed to load resource' import.log; then
+            echo "::error::$(grep -E 'SCRIPT ERROR|Parse Error|Failed to load script|Failed to load resource' import.log | tail -n 30 | tr '\n' ' ' | cut -c 1-3500)"
+            exit 1
+          fi
       - name: Deterministic inheritance and learner tests
         run: |
           ./godot --headless --path . --script tests/genetics_test.gd > genetics.log 2>&1 || {
