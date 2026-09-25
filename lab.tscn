@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://d363uo0t3panb"]
+
+[ext_resource type="Texture2D" uid="uid://bo2bs56jc1udq" path="res://ChatGPT Image Sep 22, 2026, 10_35_30 AM.png" id="1_6kv01"]
+[ext_resource type="Texture2D" uid="uid://gp2dvl6lhh8h" path="res://pod sprite.png" id="2_uw7jv"]
+[ext_resource type="Texture2D" uid="uid://bvxlvotvcfygq" path="res://prof sprite.png" id="3_ecarl"]
+[ext_resource type="Texture2D" uid="uid://cwt28kqugsarr" path="res://desk sprite.png" id="4_epn36"]
+[ext_resource type="Texture2D" uid="uid://cg6ai56pcmkdp" path="res://comp sprite.png" id="5_vu75y"]
+[ext_resource type="Texture2D" uid="uid://ckutyhn2hxmlp" path="res://main sprite.png" id="6_q077n"]
+
+[node name="Lab" type="Node2D" unique_id=1195832988]
+
+[node name="Lab" type="TextureRect" parent="." unique_id=1503532030]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_6kv01")
+expand_mode = 1
+
+[node name="pod1" type="TextureRect" parent="." unique_id=2107367996]
+offset_left = 357.0
+offset_top = 138.0
+offset_right = 457.0
+offset_bottom = 301.0
+texture = ExtResource("2_uw7jv")
+expand_mode = 1
+
+[node name="pod2" type="TextureRect" parent="." unique_id=257789665]
+offset_left = 167.0
+offset_top = 141.0
+offset_right = 276.0
+offset_bottom = 298.0
+texture = ExtResource("2_uw7jv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="pod3" type="TextureRect" parent="." unique_id=873018504]
+offset_left = 260.0
+offset_top = 135.0
+offset_right = 359.0
+offset_bottom = 297.0
+texture = ExtResource("2_uw7jv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Professor" type="TextureRect" parent="." unique_id=961833689]
+offset_left = 764.0
+offset_top = 152.0
+offset_right = 846.0
+offset_bottom = 278.0
+texture = ExtResource("3_ecarl")
+expand_mode = 1
+
+[node name="Desk" type="TextureRect" parent="." unique_id=1531805638]
+offset_left = 700.0
+offset_top = 158.0
+offset_right = 940.0
+offset_bottom = 294.0
+texture = ExtResource("4_epn36")
+expand_mode = 1
+
+[node name="Computer" type="TextureRect" parent="." unique_id=1618052241]
+offset_left = 232.0
+offset_top = 335.0
+offset_right = 342.0
+offset_bottom = 451.0
+texture = ExtResource("5_vu75y")
+expand_mode = 1
+
+[node name="Maincharacter" type="TextureRect" parent="." unique_id=495051076]
+offset_left = 95.0
+offset_top = 275.0
+offset_right = 165.0
+offset_bottom = 384.0
+texture = ExtResource("6_q077n")
+expand_mode = 1

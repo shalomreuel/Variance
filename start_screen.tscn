@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://btcmllj5482g3"]
+
+[ext_resource type="Texture2D" uid="uid://cahjtjpkmdlw1" path="res://ChatGPT Image Sep 25, 2026, 11_40_17 AM.png" id="1_ncxyx"]
+
+[node name="Start Screen" type="Node2D" unique_id=946926824]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1330449062]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1148.0
+offset_bottom = 633.0
+texture = ExtResource("1_ncxyx")
+expand_mode = 1
