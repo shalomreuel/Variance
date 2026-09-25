@@ -33,7 +33,7 @@ jobs:
           ./godot --headless --path . --editor --import --quit > import.log 2>&1
           cat import.log
           if grep -E 'SCRIPT ERROR|Parse Error|Failed to load script|Failed to load resource' import.log; then
-            echo "::error::$(grep -E 'SCRIPT ERROR|Parse Error|Failed to load script|Failed to load resource' import.log | tail -n 30 | tr '\n' ' ' | cut -c 1-3500)"
+            echo "::error::$(grep -E 'SCRIPT ERROR|Parse Error|Failed to load script|Failed to load resource' import.log | head -n 35 | tr '\n' ' ' | cut -c 1-10000)"
             exit 1
           fi
       - name: Deterministic inheritance and learner tests

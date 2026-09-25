@@ -82,7 +82,7 @@ class AIGateway:
         try:
             result = await self.provider.text(operation, context, local_reply, message, safe)
             return TextReply.model_validate(result).model_dump()
-        except (Exception,):
+        except Exception:
             LOG.warning("AI text provider unavailable/invalid; returning local lesson", exc_info=False)
             return TextReply.model_validate(fallback).model_dump()
 
@@ -99,7 +99,7 @@ class AIGateway:
             for key in ("quest_title", "objective", "question"):
                 answer[key] = getattr(proposed, key)
             return answer
-        except (Exception,):
+        except Exception:
             LOG.warning("AI quest provider unavailable/invalid; returning safe predefined quest", exc_info=False)
             return safe
 
@@ -113,6 +113,6 @@ class AIGateway:
             if response.status == "generated" and (not response.image_base64 or len(response.image_base64) > 6_000_000):
                 raise ValueError("Missing or oversized image")
             return response.model_dump(exclude_none=True)
-        except (Exception,):
+        except Exception:
             LOG.warning("Image provider unavailable; Godot will display its local dog", exc_info=False)
             return ImageReply(status="fallback", reason="Local phenotype preview available").model_dump(exclude_none=True)
